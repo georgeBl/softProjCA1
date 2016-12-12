@@ -1,0 +1,86 @@
+	<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>DRAWING APP</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <h1>Drawing App</h1>
+
+        <canvas id="mainCanvas" width="800" height="600"></canvas>
+        <form>
+            <p>
+                Tool: 
+                <input type="radio" name="shape" id="lineBtn" value = "line" checked /> Free Line
+				<input type="radio" name="shape" id="sLineBtn" value = "sline"  /> Straight Line 
+                <input type="radio" name="shape" id="rectangleBtn" value = "rectangle"  /> Rectangle 
+                <input type="radio" name="shape" id="ellipseBtn" value = "ellipse" /> Ellipse
+                <input type="radio" name="shape" id="starBtn" value = "star" /> Star
+                <input type="radio" name="shape" id="triangleBtn" value = "triangle" /> Triangle
+                <input type="radio" name="shape" id="pentagonBtn" value = "pentagon" /> Pentagon
+                <input type="radio" name="shape" id="hexagonBtn" value = "hexagon" /> Hexagon
+                <input type="radio" name="shape" id="eraserBtn" value = "eraser/radera" /> Eraser                
+                <input type="button" name="tool" id="undoBtn" value = "undo" /> 
+                <input type="button" name="tool" id="redoBtn" value = "redo" />
+                <input type="button" name="tool" id="clearBtn" value = "clear" />
+
+
+            </p>
+            <p>
+                Fill:
+                <input type="checkbox" name="fillBtn" id="fillBtn" value = "fill" /> Yes 
+            </p>
+            <p>
+                Line width: 
+                <input type="number" name="lineWidthField" id="lineWidthField" />
+            </p>
+            <p>
+                Line color: 
+                <input type="color" name="lineColorField" id="lineColorField" />
+            </p>
+            <p>
+                Fill color: 
+                <input type="color" name="fillColorField" id="fillColorField" />
+            </p>
+            <p>
+                Background color: 
+                <input type="color" name="backgroundColorField" id="backgroundColorField" value="#696969"/>
+            </p>
+            <p>
+                Transparent:
+                <input type="checkbox" name="transparentBtn" id="transparentBtn" value = "transparent" />  
+            </p>
+        </form>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/Pen.js"></script>
+		<script src="js/Rectangle.js"></script>
+        <script src="js/Ellipse.js"></script>
+		<script src="js/Line.js"></script>
+		<script src="js/sLine.js"></script>
+        <script src="js/Eraser.js"></script>
+        <script src="js/Star.js"></script>
+        <script src="js/Triangle.js"></script>
+        <script src="js/Background.js"></script>
+        <script src="js/Pentagon.js"></script>
+        <script src="js/Hexagon.js"></script>
+    </body>
+</html>
