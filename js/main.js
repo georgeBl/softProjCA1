@@ -134,6 +134,12 @@ window.addEventListener("load", function(e) {
     // fill button
     var fillBtn = document.getElementById("fillBtn");
     
+    // linear gradiant button
+    var linearGradBtn = document.getElementById("linearGradBtn");
+    
+    // radial gradiant button
+    var radialGradBtn = document.getElementById("radialGradBtn");
+    
     // line width button
     var lineWidthField = document.getElementById("lineWidthField");
     lineWidthField.value = pen.getLineWidth();
@@ -287,13 +293,14 @@ window.addEventListener("load", function(e) {
 			var fc = pen.getFillColor();
             var lw = pen.getLineWidth();
 			var f = (fillBtn.checked) ? true : false ;
+            var g = typeOfGrad();
+            console.log(g);
             difShape = new Background(canvas.width, canvas.height);
             difShape.draw(pen);
             redrawCanvas();
 			width = x2 - x;
 			height = y2 - y;
-            shape = drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f);
-		
+            shape = drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,g);
 			if (shape !== null) {
 	            if (shape.f) {
 	                shape.fill(pen);
@@ -301,9 +308,7 @@ window.addEventListener("load", function(e) {
 	            else {
 				    shape.draw(pen);
 	            }
-
 			}
-			
 		}
 	});
 
@@ -326,6 +331,8 @@ window.addEventListener("load", function(e) {
 		
 	});
 	
+    
+    
 	function redrawCanvas() {		
 		for(var i=0;i<shapes.length;i++){
 				if(shapes[i].f){
@@ -338,7 +345,7 @@ window.addEventListener("load", function(e) {
 		}
 	}
 	
-    function drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f){
+    function drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,g){
         if (shapeToDraw === "line") {
 				//new Line created on mouseDown
 				shape.addPoint(new Point(x2, y2));
@@ -359,7 +366,8 @@ window.addEventListener("load", function(e) {
 									  lc,
 									  fc,
                                       lw,
-									  f);
+									  f,
+                                      g);
 			}
 			else if (shapeToDraw === "ellipse") {
 				shape = new Ellipse(x, 
@@ -421,6 +429,17 @@ window.addEventListener("load", function(e) {
 			}
         return shape;
         
+    }
+    function typeOfGrad(){
+        if(linearGradBtn.checked){
+            return "linear";           
+        }
+        else if(radialGradBtn.checked){    
+            return "radial";
+        }
+        else {
+            return "noGrad";
+        }
     }
 });
 
