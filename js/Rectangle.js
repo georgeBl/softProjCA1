@@ -1,4 +1,4 @@
-function Rectangle(x, y, w, h, lc, fc, lw, fi) {
+function Rectangle(x, y, w, h, lc, fc, lw, fi, g) {
 	this.x = x;
 	this.y = y;
 	this.width = w;
@@ -6,14 +6,14 @@ function Rectangle(x, y, w, h, lc, fc, lw, fi) {
 	this.lineCol = lc;
 	this.fillCol = fc;
 	this.f = fi;
-    this.lineWidth = lw;
-	
+    	this.lineWidth = lw;
+	this.grad = g;
 }
 
 Rectangle.prototype.draw = function (pen) {
-    var ctx = pen.getContext();
+    	var ctx = pen.getContext();
 	ctx.strokeStyle = this.lineCol;
-    ctx.lineWidth = this.lineWidth;
+    	ctx.lineWidth = this.lineWidth;
 	ctx.beginPath();
 	ctx.rect(this.x, this.y, this.width, this.height);
 	ctx.stroke();
@@ -22,13 +22,23 @@ Rectangle.prototype.draw = function (pen) {
 
 Rectangle.prototype.fill = function (pen) {
     var ctx = pen.getContext();
-	ctx.strokeStyle = this.lineCol;
+    ctx.strokeStyle = this.lineCol;
     ctx.lineWidth = this.lineWidth;
-	ctx.fillStyle = this.fillCol;
-	ctx.beginPath();
-	ctx.rect(this.x, this.y, this.width, this.height);
-	
-	ctx.stroke();
-	ctx.fill();
-	ctx.closePath();
+    if(this.grad === "linear"){
+        var grd = ctx.createLinearGradient(0,0,0,Math.abs(this.x+this.width));
+        grd.addColorStop(0,"black");
+        grd.addColorStop(1,"red");
+        ctx.fillStyle = grd;
+    }
+    else if (this.grad === "radial") {
+        ctx.fillStyle = this.fillCol;
+        console.log("sada");
+        
+    }
+    ctx.beginPath();
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+    
 }
