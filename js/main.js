@@ -1,5 +1,5 @@
 window.addEventListener("load", function(e) {
-    console.log("simonsacunt");
+    console.log("RyAN HELLO");
     var canvas = document.getElementById("mainCanvas");
     var pen = new Pen(canvas);
     console.log(pen.getBackgroundColor());
