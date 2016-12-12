@@ -48,6 +48,7 @@
                 Gradient:
                 <input type="radio" name="gradient" id="linearGradBtn" value = "linear" /> Linear 
                 <input type="radio" name="gradient" id="radialGradBtn" value = "radial" /> Radial
+                <input type="radio" name="gradient" id="noGradBtn" value = "noGrad" checked /> Simple Fill
             </p>
             <p>
                 Line width: 
@@ -64,10 +65,27 @@
             <p>
                 Background color: 
                 <input type="color" name="backgroundColorField" id="backgroundColorField" value="#696969"/>
-            </p>
-            <p>
                 Transparent:
                 <input type="checkbox" name="transparentBtn" id="transparentBtn" value = "transparent" />  
+         
+            </p>
+            
+            <p>
+                Text to screen:
+                <input type="text" name="textField" id="textField" value = "" />
+                Font size:
+                <input type="number" name="textField" id="fontSizeField" value = "5" />
+                Font:
+                <select name="fontStyleField" id="fontStyleField">
+                    <option value="Verdana">Verdana</option>
+                    <option value="Arial">Verdana</option>
+                    <option value="Courier">Courier</option>
+                </select>
+                Bold:
+                <input type="checkbox" name="textField" id="boldBtn" value = "bold" />
+                Italic:
+                <input type="checkbox" name="textField" id="italicBtn" value = "" />
+                <input type="button" name="textField" id="applyBtn" value = "APPLY" />
             </p>
         </form>
 
@@ -87,5 +105,6 @@
         <script src="js/Background.js"></script>
         <script src="js/Pentagon.js"></script>
         <script src="js/Hexagon.js"></script>
+        <script src="js/Text.js"></script>
     </body>
 </html>
