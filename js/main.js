@@ -17,7 +17,8 @@ window.addEventListener("load", function(e) {
 	var shapeToDraw = "line";
 	var checkWhere = false;
 	var freeLine = [];
-	
+	var textToDraw;
+    var font;
 	//free draw
 	var lineTbn = document.getElementById("lineBtn");
 	lineTbn.addEventListener("change", function(e){
@@ -76,6 +77,7 @@ window.addEventListener("load", function(e) {
 			console.log(shapeToDraw);
 		}
 	});
+    //hexagon btn
     var hexagonBtn = document.getElementById("hexagonBtn");
 	hexagonBtn.addEventListener("change", function(e){
 		if (e.target.checked) {
@@ -84,6 +86,7 @@ window.addEventListener("load", function(e) {
 		}
 	});
 
+    //pentagon btn
     var pentagonBtn = document.getElementById("pentagonBtn");
 	pentagonBtn.addEventListener("change", function(e){
 		if (e.target.checked) {
@@ -91,6 +94,32 @@ window.addEventListener("load", function(e) {
 			console.log(shapeToDraw);
 		}
 	});
+    
+    var applyBtn = document.getElementById("applyBtn");
+    applyBtn.addEventListener("click", function(e){
+        var textField = document.getElementById("textField");
+        var fontSizeField = document.getElementById("fontSizeField");
+        var fontStyleField = document.getElementById("fontStyleField");
+        var boldBtn = document.getElementById("boldBtn");
+        if(boldBtn.checked){
+            boldBtn.value = "bold";
+        }
+        else{
+            boldBtn.value = "";
+        }
+        var italicBtn = document.getElementById("italicBtn");
+        if(italicBtn.checked){
+            italicBtn.value = "italic";
+        }
+        else{
+            italicBtn.value = "";
+        }
+        shapeToDraw = "text";
+        
+        font = fontSizeField.value + "px " + fontStyleField.value + " " + boldBtn.value + " " + italicBtn.value;
+        textToDraw = textField.value;
+        console.log(textToDraw,font);
+    });
 	
 	if (rectangleBtn.checked) {
 		shapeToDraw = "rectangle";
@@ -286,6 +315,16 @@ window.addEventListener("load", function(e) {
 
 	canvas.addEventListener("mousemove", function(e){
 	//	console.log("mouse move at " + e.offsetX + ", " + e.offsetY);
+        if(!checkWhere && shapeToDraw === "text"){
+            var lc = pen.getLineColor();
+            var x2 = e.offsetX;
+			var y2 = e.offsetY;
+            difShape = new Background(canvas.width, canvas.height);
+            difShape.draw(pen);
+            redrawCanvas();
+            shape = new Text(x2,y2,textToDraw,font,lc);
+            shape.draw(pen);
+        }
 		if(checkWhere){
 			var x2 = e.offsetX;
 			var y2 = e.offsetY;
@@ -310,6 +349,7 @@ window.addEventListener("load", function(e) {
 	            }
 			}
 		}
+
 	});
 
 	var  stopLine =false;
