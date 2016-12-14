@@ -10,6 +10,7 @@ function Text(x, y ,text,font,lc) {
 
 Text.prototype.draw = function (pen) {
     var ctx = pen.getContext();
+    pen.setLineColor(this.lineCol);
     ctx.beginPath();
     ctx.font = this.font;
     ctx.fillStyle = this.lineCol;
