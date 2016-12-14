@@ -1,6 +1,8 @@
 function Pen(canvas) {
     this.canvas = canvas;
 	this.context = canvas.getContext("2d");
+    this.gradientCol1;
+    this.gradientCol2;
 }
 
 Pen.prototype.getCanvas = function () {
@@ -39,4 +41,16 @@ Pen.prototype.getBackgroundColor = function(){
 }
 Pen.prototype.setBackgroundColor = function(c){
     this.canvas.style.backgroundColor = c;
+}
+Pen.prototype.getGradientCol1 = function(){
+    return this.gradientCol1; 
+}
+Pen.prototype.setGradientCol1 = function(c){
+    this.gradientCol1 = c;
+}
+Pen.prototype.getGradientCol2 = function(){
+    return this.gradientCol2;
+}
+Pen.prototype.setGradientCol2 = function(c){
+    this.gradientCol2 = c;
 }
