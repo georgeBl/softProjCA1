@@ -1,3 +1,77 @@
 canvas#mainCanvas {
 	background-color: #777777;
 }
+body{
+    background-image:url("background.jpg");
+}
+.height-full {
+  height: 100vh;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.horizontal{
+    display:inline;
+}
+/* CSS used here will be applied after bootstrap.css
+ li.dropdown.open { position: static; }
+ li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
+.dropdown-menu>li { display: table-cell; }
+ */
+.centered{
+    text-align: center;
+}
+input[type='radio'] { transform: scale(2); }
+input[type='checkbox'] { transform: scale(2); }
+.bolded {
+    font-weight: bold;
+}
+.colBtn {
+    width: 50px;
+    height: 30px;
+}
+.splitRow{
+    margin-top: 10px;
+}
+.moveToRight{
+    margin-left:3%;
+}
+.paddingLeft{
+    padding:1%;
+}
+.paddingRight{
+    padding:1%;
+}
+/*
+.numberBtn{
+    width: 10px;
+}
+*/
+
+input[type='number'] {
+/*    padding:5px; */
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width:100px;
+    margin-left:0px;
+}
+.marginRight{
+    margin-right:0px;
+}
+.marginLeft{
+    margin-left:0px;
+}
+.moveDown{
+    margin-top:10px;
+}
+.selectWidth{
+    width:auto;
+}
+.menuCol{
+    background-color: aliceblue;
+}
+.emptyRow{
+    height:20px;
+}
