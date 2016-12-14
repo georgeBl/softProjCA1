@@ -18,77 +18,298 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
-        <h1>Drawing App</h1>
+    <body>   
+        <div class = "container-fluid" >
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="centered">Pencil Tools</h4>
+                        </div>
+                    </div>
+                    <div class="row">                       
+                       <div class="col-md-12  col-centered">
+                            <button class="btn btn-primary btn-block  " name="pencil" id="lineBtn" value="line">Pencil</button>
+                       
+                      
+                            <button class="btn btn-primary btn-block " name="pencil" id="brushBtn" value="brush">Brush</button>
+                     
+                      
+                            <button class="btn btn-primary btn-block " name="pencil" id="sLineBtn" value="sline">Straigh Line</button>
+                           
+                            <button class="btn btn-primary btn-block" name="shape" id="eraserBtn" value = "eraser/radera">Eraser</button>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="centered">Shapes</h4>
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <button class="btn btn-primary btn-block " name="shape" id="rectangleBtn" value="rectangle">Rectangle</button> 
+                        
+                      
+                           <button class="btn btn-primary btn-block" name="shape" id="ellipseBtn" value="ellipse">Ellipse</button> 
+                     
+                       
+                           <button class="btn btn-primary  btn-block" name="shape" id="starBtn" value="star">Star</button> 
+                   
+                  
+                      
+                           <button class="btn btn-primary btn-block" name="shape" id="triangleBtn" value="triangle">Triangle</button> 
+                     
+                        
+                           <button class="btn btn-primary btn-block" name="shape" id="pentagonBtn" value="pentagon">Pentagon</button> 
+                        
+                       
+                           <button class="btn btn-primary btn-block" name="shape" id="hexagonBtn" value="hexagon">Hexagon</button> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="centered">Text</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="textField" name="textField" placeholder="Your text">
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5">
+                            <p class="bolded moveDown">Text size:</p>
+                        </div>
+                        <div class="col-md-4">
+                           <input type="number" class="form-control" name="textField" id="fontSizeField" value = "50" />
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5">
+                            <p class="bolded moveDown"> Text font:</p>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control selectWidth" name="fontStyleField" id="fontStyleField">
+                                <option value="Verdana">Verdana</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Impact">Impact</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-2 col-md-offset-1">
+                            <p class="bolded ">Bold</p>
+                        </div>
+                        <div class="col-md-2">
+                            <input class="" type="checkbox" name="textField" id="boldBtn" value = "" />
+                        </div>
+                        <div class="col-md-2">
+                            <p class="bolded ">Italic</p>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="checkbox" name="textField" id="italicBtn" value = "" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-block" type="button" name="textField" id="applyBtn" value = "APPLY">Apply Text</button>
+                        </div>
+                    </div>
+                       
+                    
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5 ">
+                    <div class="row emptyRow"> </div>
+                    <div class="row">
+                        <canvas id="mainCanvas" width="600" height="600" ></canvas> 
+                    </div>
+                </div>   
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="centered splitRow">Other tools</h4>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 marginRight">
+                            <p class="bolded marginRight">Line width:</p> 
+                        </div>
+                        <div class="col-md-4 marginLeft">
+                            <input class="" type="number" name="lineWidthField" id="lineWidthField" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="" type="range" name="lineWidthSliderField" id="lineWidthSliderField" min="0" max="20" default="5"/>
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5 marginRight">
+                                <p class="bolded marginRight">Stroke:</p> 
+                        </div>
+                        <div class="col-md-4 marginLeft">
+                            <input class="" type="checkbox" name="strokeBtn" id="strokeBtn" />
+                        </div>
+                    </div>    
+                    <div class="row splitRow">
+                        <div class="col-md-5 marginRight">
+                            <p class="bolded marginRight">Line Color:</p> 
+                        </div>
+                        <div class="col-md-4 marginLeft">
+                            <input class="colBtn" type="color" name="lineColorField" id="lineColorField" />
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5 marginRight">
+                            <p class="bolded marginRight">Fill Color:</p> 
+                        </div>
+                        <div class="col-md-4 marginLeft">
+                            <input class="colBtn" type="color" name="fillColorField" id="fillColorField" />
+                        </div>
+                    </div>
+                    <div class="row"> <!-- FILL STYLE-->
+                         <div class="col-md-12  col-centered">
+                             <div class="row">
+                                 <div class="col-md-12">
+                                    <h4 class="centered">Fill Style</h4>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-5">
+                                     <p class="bolded">Toggle Fill</p>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="moveToRight moveDown" type="checkbox" name="fillBtn" id="fillBtn" value = "fill" /> 
+                                 </div>
+                                 
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-5">
+                                     <p class="bolded">Normal</p>
+                                 </div>
+                                 <div class="col-md-4">
+                                    <input type="radio" name="grad/pattern" id="simpleFillBtn" value = "noGrad" checked /> 
+                                 </div>
+                             </div>
+                             
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <p class="bolded">Gradient:</p>
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="bolded">
+                                            <input type="radio" name="grad/pattern" id="linearGradBtn" value = "linear" /> Linear</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="bolded">
+                                            <input type="radio" name="grad/pattern" id="radialGradBtn" value = "radial" /> Radial</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                             </div>
+                             
+                             <div class="row">
+                                <div class="col-md-5">
+                                    <p class="bolded">Gradient Colors:</p>
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="colBtn" type="color" name="grad/pattern" id="gradientCol1" value = "blue"  />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="colBtn" type="color" name="grad/pattern" id="gradientCol2" value = "red"  />   
+                                        </div>
+                                    </div>
+                                </div>
 
-        <canvas id="mainCanvas" width="800" height="600"></canvas>
-        <form>
-            <p>
-                Tool: 
-                <input type="radio" name="shape" id="lineBtn" value = "line" checked /> Free Line
-				<input type="radio" name="shape" id="sLineBtn" value = "sline"  /> Straight Line 
-                <input type="radio" name="shape" id="rectangleBtn" value = "rectangle"  /> Rectangle 
-                <input type="radio" name="shape" id="ellipseBtn" value = "ellipse" /> Ellipse
-                <input type="radio" name="shape" id="starBtn" value = "star" /> Star
-                <input type="radio" name="shape" id="triangleBtn" value = "triangle" /> Triangle
-                <input type="radio" name="shape" id="pentagonBtn" value = "pentagon" /> Pentagon
-                <input type="radio" name="shape" id="hexagonBtn" value = "hexagon" /> Hexagon
-                <input type="radio" name="shape" id="eraserBtn" value = "eraser/radera" /> Eraser                
-                <input type="button" name="tool" id="undoBtn" value = "undo" /> 
-                <input type="button" name="tool" id="redoBtn" value = "redo" />
-                <input type="button" name="tool" id="clearBtn" value = "clear" />
+                             </div>
+                             <div class="row splitRow">
+                             <span></span>
+                             </div>
+                             <div class="row">
+                                <div class="col-md-5">
+                                    <p class="bolded">Patterns:</p>
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="bolded "><input type="radio" name="grad/pattern" id="pattern1" value = "pattern1" /> Pattern 1 </p> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="bolded"><input type="radio" name="grad/pattern" id="pattern2" value = "pattern2" /> Pattern 2 </p>   
+                                        </div>
+                                    </div>
+                                </div>
+                             </div> 
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5">
+                            <p class="bolded">Background color:</p>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="colBtn" type="color" name="backgroundColorField" id="backgroundColorField" value="#696969"/>
+                        </div>
+                    </div>
+                    <div class="row splitRow">
+                        <div class="col-md-5">
+                            <p class="bolded">Transparent background:</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="transparentBtn" id="transparentBtn" value = "transparent" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 marginRight paddingRight">
+                            <button class="btn btn-primary btn-block" name="tool" id="undoBtn" value = "undo">Undo</button> 
+                        </div>
+                        <div class="col-md-6 marginLeft paddingLeft">
+                            <button class="btn btn-primary btn-block" name="tool" id="redoBtn" value = "redo">Redo</button> 
+                        </div>
+                        <div class="col-md-6 marginRight paddingRight">
+                            <button class="btn btn-primary btn-block" name="tool" id="refreshBtn" value = "refresh">New</button> 
+                        </div>
+                        <div class="col-md-6 marginLeft paddingLeft">
+                            <button class="btn btn-primary btn-block" name="tool" id="saveBtn" value = "save">Save</button> 
+                        </div>
+                        <div class="col-md-12 paddingLeft paddingRight">
+                            <button class="btn btn-primary btn-block"name="tool" id="clearBtn" value = "clear">Clear</button> 
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
 
-
-            </p>
-            <p>
-                Fill:
-                <input type="checkbox" name="fillBtn" id="fillBtn" value = "fill" /> Yes 
-            </p>
-            <p>
-                Gradient:
-                <input type="radio" name="gradient" id="linearGradBtn" value = "linear" /> Linear 
-                <input type="radio" name="gradient" id="radialGradBtn" value = "radial" /> Radial
-                <input type="radio" name="gradient" id="noGradBtn" value = "noGrad" checked /> Simple Fill
-            </p>
-            <p>
-                Line width: 
-                <input type="number" name="lineWidthField" id="lineWidthField" />
-            </p>
-            <p>
-                Line color: 
-                <input type="color" name="lineColorField" id="lineColorField" />
-            </p>
-            <p>
-                Fill color: 
-                <input type="color" name="fillColorField" id="fillColorField" />
-            </p>
-            <p>
-                Background color: 
-                <input type="color" name="backgroundColorField" id="backgroundColorField" value="#696969"/>
-                Transparent:
-                <input type="checkbox" name="transparentBtn" id="transparentBtn" value = "transparent" />  
-         
-            </p>
-            
-            <p>
-                Text to screen:
-                <input type="text" name="textField" id="textField"/>
-                Font size:
-                <input type="number" name="textField" id="fontSizeField" value = "5" />
-                Font:
-                <select name="fontStyleField" id="fontStyleField">
-                    <option value="Verdana">Verdana</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Courier">Courier</option>
-                </select>
-                Bold:
-                <input type="checkbox" name="textField" id="boldBtn" value = "" />
-                Italic:
-                <input type="checkbox" name="textField" id="italicBtn" value = "" />
-                <input type="button" name="textField" id="applyBtn" value = "APPLY" />
-            </p>
-        </form>
-
+      
+        
+        
+        
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -108,3 +329,6 @@
         <script src="js/Text.js"></script>
     </body>
 </html>
+
+    
+            
