@@ -1,11 +1,13 @@
 window.addEventListener("load", function(e) {
-    console.log("12/13/2016");
+    console.log("Last edited 14/12/2016");
     var canvas = document.getElementById("mainCanvas");
     var pen = new Pen(canvas);
     console.log(pen.getBackgroundColor());
     pen.setLineWidth(5);
     pen.setLineColor("#999999");
     pen.setFillColor("#0000FF");
+    pen.setGradientCol1("#FF0000");
+    pen.setGradientCol2("#0000FF");
 	var ctx = pen.getContext();
     var x;
     var y;
@@ -19,80 +21,82 @@ window.addEventListener("load", function(e) {
 	var freeLine = [];
 	var textToDraw;
     var font;
-	//free draw
-	var lineTbn = document.getElementById("lineBtn");
-	lineTbn.addEventListener("change", function(e){
-		if (e.target.checked) {
+    var gradient;
+    var stroke;
+    //line btn
+	var lineBtn = document.getElementById("lineBtn");
+	lineBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "line";
 			console.log(shapeToDraw);
-		}
+		
 	});
 	
     //buton de radera
 	var eraserBtn = document.getElementById("eraserBtn");
 	eraserBtn.addEventListener("click", function(e){
-        if (e.target.checked) {
+        
 			shapeToDraw = "eraser";
 			console.log(shapeToDraw);
-        }
+        
 	});
     
 	//rectangle shape
     var rectangleBtn = document.getElementById("rectangleBtn");
-	rectangleBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	rectangleBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "rectangle";
 			console.log(shapeToDraw);
-		}
+		
 	});
 	
 	//ellipse shape
 	var ellipseBtn = document.getElementById("ellipseBtn");
-	ellipseBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	ellipseBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "ellipse";
 			console.log(shapeToDraw);
-		}
+		
 	});
 
 	var starBtn = document.getElementById("starBtn");
-	starBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	starBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "star";
 			console.log(shapeToDraw);
-		}
+		
 	});
     var triangleBtn = document.getElementById("triangleBtn");
-	triangleBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	triangleBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "triangle";
 			console.log(shapeToDraw);
-		}
+		
 	});
 	// straight line
 	var sLineBtn = document.getElementById("sLineBtn");
-	sLineBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	sLineBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "sline";
 			console.log(shapeToDraw);
-		}
+		
 	});
     //hexagon btn
     var hexagonBtn = document.getElementById("hexagonBtn");
-	hexagonBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	hexagonBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "hexagon";
 			console.log(shapeToDraw);
-		}
+		
 	});
 
     //pentagon btn
     var pentagonBtn = document.getElementById("pentagonBtn");
-	pentagonBtn.addEventListener("change", function(e){
-		if (e.target.checked) {
+	pentagonBtn.addEventListener("click", function(e){
+		
 			shapeToDraw = "pentagon";
 			console.log(shapeToDraw);
-		}
+		
 	});
     
     var applyBtn = document.getElementById("applyBtn");
@@ -116,58 +120,113 @@ window.addEventListener("load", function(e) {
         }
         shapeToDraw = "text";
         
-        font = fontSizeField.value + "px " + fontStyleField.value + " " + boldBtn.value + " " + italicBtn.value;
+        font =boldBtn.value + " " + italicBtn.value + " " + fontSizeField.value + "px " + fontStyleField.value;
         textToDraw = textField.value;
         console.log(textToDraw,font);
     });
 	
-	if (rectangleBtn.checked) {
-		shapeToDraw = "rectangle";
-		console.log(shapeToDraw);
-	}
-	else if (ellipseBtn.checked) {
-		shapeToDraw = "ellipse";
-		console.log(shapeToDraw);
-	}
-	else if (lineBtn.checked) {
-		shapeToDraw = "line";
-		console.log(shapeToDraw);
-	}
-	else if (sLineBtn.checked) {
-		shapeToDraw = "sline";
-		console.log(shapeToDraw);
-	}
-    else if (starBtn.checked) {
-		shapeToDraw = "star";
-		console.log(shapeToDraw);
-	}
-    else if (eraserBtn.checked) {
-		shapeToDraw = "eraser";
-		console.log(shapeToDraw);
-	}
-    else if (triangleBtn.checked) {
-		shapeToDraw = "triangle";
-		console.log(shapeToDraw);
-	}
-    else if (pentagon.checked) {
-		shapeToDraw = "pentagon";
-		console.log(shapeToDraw);
-	}
-    else if (hexagon.checked) {
-		shapeToDraw = "hexagon";
-		console.log(shapeToDraw);
-	}
-	else {
-		shapeToDraw = "line";
-	}
-    // fill button
+//	if (rectangleBtn.checked) {
+//		shapeToDraw = "rectangle";
+//		console.log(shapeToDraw);
+//	}
+//	else if (ellipseBtn.checked) {
+//		shapeToDraw = "ellipse";
+//		console.log(shapeToDraw);
+//	}
+//	else if (lineBtn.checked) {
+//		shapeToDraw = "line";
+//		console.log(shapeToDraw);
+//	}
+//	else if (sLineBtn.checked) {
+//		shapeToDraw = "sline";
+//		console.log(shapeToDraw);
+//	}
+//    else if (starBtn.checked) {
+//		shapeToDraw = "star";
+//		console.log(shapeToDraw);
+//	}
+//    else if (eraserBtn.checked) {
+//		shapeToDraw = "eraser";
+//		console.log(shapeToDraw);
+//	}
+//    else if (triangleBtn.checked) {
+//		shapeToDraw = "triangle";
+//		console.log(shapeToDraw);
+//	}
+//    else if (pentagon.checked) {
+//		shapeToDraw = "pentagon";
+//		console.log(shapeToDraw);
+//	}
+//    else if (hexagon.checked) {
+//		shapeToDraw = "hexagon";
+//		console.log(shapeToDraw);
+//	}
+//	else {
+//		shapeToDraw = "line";
+//	}
+    
+    // FILLS!!!
+    // fill buttons
     var fillBtn = document.getElementById("fillBtn");
     
-    // linear gradiant button
+    //gradient buttons
+    //linear grad btn
     var linearGradBtn = document.getElementById("linearGradBtn");
+    linearGradBtn.addEventListener("change", function(e){
+        gradient = "linear";
+        console.log(gradient);
+    });
     
     // radial gradiant button
     var radialGradBtn = document.getElementById("radialGradBtn");
+    radialGradBtn.addEventListener("change", function(e){
+        gradient = "radial";
+        console.log(gradient);
+    });
+    
+    //simple fill btn
+    var simpleFillBtn = document.getElementById("simpleFillBtn");
+    simpleFillBtn.addEventListener("change", function(e){
+        gradient ="noGrad";
+        var fillColor = fillColorField.value;
+        pen.setFillColor(fillColor);
+        console.log(gradient);
+    });
+    
+    
+    //gradient color 1
+    var gradientCol1 = document.getElementById("gradientCol1");
+    gradientCol1.value = pen.getGradientCol1();
+    gradientCol1.addEventListener("change", function(e){
+        pen.setGradientCol1(e.target.value);
+        console.log(e.target.value);
+    });
+    
+    //gradient color 2
+    var gradientCol2 = document.getElementById("gradientCol2");
+    gradientCol2.value = pen.getGradientCol2();
+    gradientCol2.addEventListener("change", function(e){
+        pen.setGradientCol2(e.target.value);
+        console.log(e.target.value);
+    });
+    
+    //pat1
+    var pattern1Btn = document.getElementById("pattern1");
+    pattern1Btn.addEventListener("change", function(e){
+        gradient = "pattern1";
+        console.log(gradient);
+    });
+    
+    //pat2
+    var pattern2Btn = document.getElementById("pattern2");
+    pattern2Btn.addEventListener("change", function(e){
+        gradient = "pattern2";
+        console.log(gradient);
+    });
+   
+    
+    
+    //other buttons
     
     // line width button
     var lineWidthField = document.getElementById("lineWidthField");
@@ -178,6 +237,29 @@ window.addEventListener("load", function(e) {
         if (Number.isInteger(lineWidth)) {
             pen.setLineWidth(lineWidth);
         }
+    });
+    
+    // line width slider
+    var lineWidthSliderField = document.getElementById("lineWidthSliderField");
+    lineWidthSliderField.value = pen.getLineWidth();
+    lineWidthSliderField.addEventListener("change", function (e) {
+        var lineWidthSld = e.target.value;
+        var lineWidth = parseInt(lineWidthSld);
+        if (Number.isInteger(lineWidth)) {
+            pen.setLineWidth(lineWidth);
+        }
+    });
+    
+    // stroke button
+    var strokeBtn = document.getElementById("strokeBtn");
+    strokeBtn.addEventListener("change", function (e) {
+        if(e.target.checked){
+            stroke = true;            
+        }
+        else{
+            stroke = false;
+        }
+        
     });
     
     //line color button 
@@ -287,6 +369,27 @@ window.addEventListener("load", function(e) {
         shapes.push(shape);
     });
     
+    var newBtn = document.getElementById("refreshBtn");
+    newBtn.addEventListener("click", function(e){
+        history.go(0);   
+    });
+    //save button
+    var saveBtn = document.getElementById("saveBtn");
+    saveBtn.addEventListener("click", function(e){
+        if(!transparentBtn.checked){
+        shape = new Background(canvas.width, canvas.height, backgroundColorField.value);
+        shape.drawSave(pen);
+   //     shapes.concat(shape);
+        console.log(shapes);
+        redrawCanvas();
+        }
+        var dataURL = canvas.toDataURL();
+//      window.location.href = dataURL;
+        window.open(dataURL);
+      //  shapes.shift();
+        console.log(shapes);
+    });
+    
 	canvas.addEventListener("mousedown", function(e){
 		console.log("mouse down at " + e.offsetX + ", " + e.offsetY);
 		x = e.offsetX;
@@ -332,14 +435,12 @@ window.addEventListener("load", function(e) {
 			var fc = pen.getFillColor();
             var lw = pen.getLineWidth();
 			var f = (fillBtn.checked) ? true : false ;
-            var g = typeOfGrad();
-            console.log(g);
             difShape = new Background(canvas.width, canvas.height);
             difShape.draw(pen);
             redrawCanvas();
 			width = x2 - x;
 			height = y2 - y;
-            shape = drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,g);
+            shape = drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,gradient, stroke);
 			if (shape !== null) {
 	            if (shape.f) {
 	                shape.fill(pen);
@@ -385,7 +486,7 @@ window.addEventListener("load", function(e) {
 		}
 	}
 	
-    function drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,g){
+    function drawShape(shapeToDraw,x,y,x2,y2,width,height,lc,lw,fc,f,gradient, stroke){
         if (shapeToDraw === "line") {
 				//new Line created on mouseDown
 				shape.addPoint(new Point(x2, y2));
@@ -407,7 +508,10 @@ window.addEventListener("load", function(e) {
 									  fc,
                                       lw,
 									  f,
-                                      g);
+                                      gradient,
+                                      pen.getGradientCol1(),
+                                      pen.getGradientCol2(),
+                                      stroke);
 			}
 			else if (shapeToDraw === "ellipse") {
 				shape = new Ellipse(x, 
@@ -417,7 +521,11 @@ window.addEventListener("load", function(e) {
 									lc,
 									fc,
                                     lw,
-									f);
+									f,
+                                    gradient,
+                                    pen.getGradientCol1(),
+                                    pen.getGradientCol2(),
+                                    stroke);
 			}
             else if (shapeToDraw === "star") {				
 				shape = new Star(x, 
@@ -427,7 +535,11 @@ window.addEventListener("load", function(e) {
 								 lc,
 								 fc,
                                  lw,
-				                 f);
+				                 f,
+                                 gradient,
+                                 pen.getGradientCol1(),
+                                 pen.getGradientCol2(),
+                                 stroke);
 			}
             else if (shapeToDraw === "triangle") {				
 				shape = new Triangle(x, 
@@ -437,7 +549,11 @@ window.addEventListener("load", function(e) {
                                      lc,
                                      fc,
                                      lw,
-                                     f);
+                                     f,
+                                     gradient,
+                                     pen.getGradientCol1(),
+                                     pen.getGradientCol2(),
+                                     stroke);
 			}
             else if (shapeToDraw === "pentagon") {				
                 shape = new Pentagon(x, 
@@ -447,7 +563,11 @@ window.addEventListener("load", function(e) {
                                      lc,
                                      fc,
                                      lw,
-                                     f);
+                                     f,
+                                     gradient,
+                                     pen.getGradientCol1(),
+                                     pen.getGradientCol2(),
+                                     stroke);
             }
             else if(shapeToDraw === "hexagon"){
 				shape = new Hexagon(x,
@@ -457,7 +577,11 @@ window.addEventListener("load", function(e) {
 								  lc,
                                   fc,
                                   lw,
-                                  f);
+                                  f,
+                                  gradient,
+                                  pen.getGradientCol1(),
+                                  pen.getGradientCol2(),
+                                  stroke);
 			}
 			else if(shapeToDraw === "sline"){
 				shape = new sLine(x,
@@ -469,17 +593,6 @@ window.addEventListener("load", function(e) {
 			}
         return shape;
         
-    }
-    function typeOfGrad(){
-        if(linearGradBtn.checked){
-            return "linear";           
-        }
-        else if(radialGradBtn.checked){    
-            return "radial";
-        }
-        else {
-            return "noGrad";
-        }
     }
 });
 
