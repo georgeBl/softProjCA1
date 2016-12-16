@@ -23,16 +23,31 @@ window.addEventListener("load", function(e) {
     var font;
     var gradient;
     var stroke;
+    var type;
     //line btn
 	var lineBtn = document.getElementById("lineBtn");
 	lineBtn.addEventListener("click", function(e){
 		
 			shapeToDraw = "line";
+            pen.setLineWidth(5);
 			console.log(shapeToDraw);
+            lineWidthField.value = 5;
+		
+	});
+    
+    //brush btn
+	var brushBtn = document.getElementById("brushBtn");
+	brushBtn.addEventListener("click", function(e){
+		
+			shapeToDraw = "line";
+           // type ="brush";
+            pen.setLineWidth(10);
+			console.log("brush");
+            lineWidthField.value = 10;
 		
 	});
 	
-    //buton de radera
+    //eraser
 	var eraserBtn = document.getElementById("eraserBtn");
 	eraserBtn.addEventListener("click", function(e){
         
@@ -235,6 +250,7 @@ window.addEventListener("load", function(e) {
         var lineWidthStr = e.target.value;
         var lineWidth = parseInt(lineWidthStr);
         if (Number.isInteger(lineWidth)) {
+            lineWidthSliderField.value = lineWidth;
             pen.setLineWidth(lineWidth);
         }
     });
@@ -246,6 +262,7 @@ window.addEventListener("load", function(e) {
         var lineWidthSld = e.target.value;
         var lineWidth = parseInt(lineWidthSld);
         if (Number.isInteger(lineWidth)) {
+            lineWidthField.value = lineWidth;
             pen.setLineWidth(lineWidth);
         }
     });
@@ -542,10 +559,22 @@ window.addEventListener("load", function(e) {
                                  stroke);
 			}
             else if (shapeToDraw === "triangle") {				
-				shape = new Triangle(x, 
+//				shape = new Triangle(x, 
+//					 		         y, 
+//                                     x2, 
+//                                     y2,
+//                                     lc,
+//                                     fc,
+//                                     lw,
+//                                     f,
+//                                     gradient,
+//                                     pen.getGradientCol1(),
+//                                     pen.getGradientCol2(),
+//                                     stroke);
+                shape = new Triangle(x, 
 					 		         y, 
-                                     x2, 
-                                     y2,
+                                     width, 
+                                     height,
                                      lc,
                                      fc,
                                      lw,
